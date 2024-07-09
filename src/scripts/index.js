@@ -14,8 +14,8 @@ const buttonStart = document.getElementById('start').addEventListener("click",()
 })
 
 function startCount (){
-    if(bb.value < 8 || minutes.value < 10 || minutes.value > 20){
-        alert("Valor do BB deve ser maior que 8 e o temporizador deve indiar entre 10 a 20 minutos.");
+    if(bb.value < 8 || minutes.value < 5 || minutes.value > 20){
+        alert("Valor do BB deve ser maior que 8 e o temporizador deve indiar entre 5 a 20 minutos.");
         return
     }
     refreshBlind();
