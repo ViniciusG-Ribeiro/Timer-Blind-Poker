@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Blinds</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <audio id="bark"><source src="src/sound/corte-cachorro.mp3" type="audio/mp3"></audio>
+</head>
+<body>
+
+    <main>
+        <h1>Timer Blind</h1>
+        <img class="dealer" src="src/img/dog_dealer-removebg.png" alt="">
+        <div class="inputs">
+            <input id = "bb" type="number"  placeholder="BB value" min = "8">
+            <input id = "minutes" placeholder="Minutes" type ="number" min = "10" max="20">
+            <button id="start">Start</button>
+        </div>
+        <div class="timer">
+            <button id="reset">Reset</button>
+            <!-- <h2><span id="count-minu">00</span>:<span id="count-sec">10</span></h2> -->
+            <h2 id="count">00:00</h2>
+            <p id="current-b">Atual BB: <span>0</span> SB: <span>0</span></p>
+            <p id="next-b">Próximo BB: <span>0</span> SB: <span>0</span></p>
+        </div>
+    </main>
+
+    
+    <script src="/src/scripts/index.js"></script>
+    <script>
+        document.getElementById('bb').addEventListener('keyup',(e)=>{
+        const key = e.which || e.keyCode
+        const inEnterKeyPressed = key === 13
+
+        if(inEnterKeyPressed){
+            BbValue = bb.value
+            startCount();
+        }
+    })
+    </script>
+
+    <script>
+        document.getElementById('minutes').addEventListener('keyup',(e)=>{
+        const key = e.which || e.keyCode
+        const inEnterKeyPressed = key === 13
+
+        if(inEnterKeyPressed){
+            BbValue = bb.value
+            startCount();
+        }
+    })
+    </script>
+</body>
+</html>
