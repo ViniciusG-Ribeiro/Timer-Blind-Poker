@@ -2,6 +2,9 @@ const bb = document.getElementById('bb');
 const minutes = document.getElementById('minutes');
 const htmlTimerDiv = document.querySelectorAll('timer'); 
 const barkSound = document.getElementById('bark');
+const barkSound2 = document.getElementById('bark2');
+barkSound2.volume = 0.5;
+const growl = document.getElementById('growl');
 const count = document.getElementById('count');
 const currentB = document.getElementById('current-b');
 const nextB= document.getElementById('next-b');
@@ -14,10 +17,10 @@ const buttonStart = document.getElementById('start').addEventListener("click",()
 })
 
 function startCount (){
-    if(bb.value < 8 || minutes.value < 5 || minutes.value > 20){
-        alert("Valor do BB deve ser maior que 8 e o temporizador deve indiar entre 5 a 20 minutos.");
-        return
-    }
+    // if(bb.value < 8 || minutes.value < 5 || minutes.value > 20){
+    //     alert("Valor do BB deve ser maior que 8 e o temporizador deve indiar entre 5 a 20 minutos.");
+    //     return
+    // }
     refreshBlind();
     m = minutes.value;
     let minutosFormatados = m < 10 ? `0${m}` : `${m}`;
@@ -40,6 +43,9 @@ function timer(){
         let segundosFormatados = s < 10 ? `0${s}` : `${s}`;
         count.textContent = `${minutosFormatados}:${segundosFormatados}`;
         barkSound.play();
+        setTimeout(function(){
+            barkSound2.play();
+        },400)
         BbValue = BbValue*2;
         stoptimer();
         startCount();
@@ -73,6 +79,7 @@ const reset = document.getElementById('reset').addEventListener("click",()=>{
     count.textContent = `${minutosFormatados}:${segundosFormatados}`;
     currentB.innerHTML = `Atual BB: <span>0</span> SB: <span>0</span>`;
     nextB.innerHTML = `Próximo BB: <span>0</span> SB: <span>0</span>`;
+    growl.play();
     stoptimer();
 })
 
