@@ -13,6 +13,10 @@ var m = 0
 
 const buttonStart = document.getElementById('start').addEventListener("click",()=>{
     BbValue = bb.value
+    if(s != 0 && m != 0){
+        stoptimer();
+        s = 0;
+    }
     startCount()
 })
 
